@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieHub| Movies & Shows</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <a href="#" class="logo">MOVIEHUB</a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#trending">Trending</a>
+            <a href="#movies">Movies</a>
+            <a href="#series">Series</a>
+            <a href="#my-list">My List</a>
+        </nav>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search titles...">
+            <button id="clearSearch" type="button">Clear</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <p class="eyebrow">MOVIEHUB ORIGINAL STYLE</p>
+                <h1>Unlimited Stories.</h1>
+                <h2>One Place to Watch.</h2>
+                <p>
+                    Discover movies, explore new worlds, and find your
+                    next favourite series.
+                </p>
+
+                <div class="hero-buttons">
+                    <button class="btn btn-light" id="exploreButton">
+                        Explore Titles
+                    </button>
+                    <button class="btn btn-outline" id="heroInfoButton">
+                        More Info
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trending -->
+        <section class="content-section" id="trending">
+            <div class="section-heading">
+                <h2>Trending Now</h2>
+                <p>Popular picks for your next movie night</p>
+            </div>
+            <div class="movie-grid" id="trendingGrid"></div>
+        </section>
+
+        <!-- Movies -->
+        <section class="content-section" id="movies">
+            <div class="section-heading">
+                <h2>Popular Movies</h2>
+                <p>Stories worth watching</p>
+            </div>
+            <div class="movie-grid" id="moviesGrid"></div>
+        </section>
+
+        <!-- Series -->
+        <section class="content-section" id="series">
+            <div class="section-heading">
+                <h2>Popular Series</h2>
+                <p>Your next binge-watch starts here</p>
+            </div>
+            <div class="movie-grid" id="seriesGrid"></div>
+        </section>
+
+        <!-- My List -->
+        <section class="content-section" id="my-list">
+            <div class="section-heading">
+                <h2>My List</h2>
+                <p>Your saved titles, stored on this device</p>
+            </div>
+            <div class="movie-grid" id="myListGrid"></div>
+            <p class="empty-message" id="emptyListMessage">
+                Your list is empty. Add a title using the + My List button.
+            </p>
+        </section>
+
+        <!-- Search Results -->
+        <section class="content-section" id="searchSection" hidden>
+            <div class="section-heading">
+                <h2>Search Results</h2>
+                <p id="searchCount"></p>
+            </div>
+            <div class="movie-grid" id="searchGrid"></div>
+            <p class="empty-message" id="noResultsMessage" hidden>
+                No titles found. Try another search.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+          Watch.Explore.Have Fun.
+          Siddhi Jha Movies Private Limited.
+        </p>
+    </footer>
+
+    <!-- Movie Details Popup -->
+    <dialog id="movieDialog" class="movie-dialog">
+        <button class="close-button" id="closeDialog" aria-label="Close">
+            &times;
+        </button>
+
+        <div class="dialog-content">
+            <div class="popup-video-container">
+                <!-- YouTube IFrame API creates the trailer iframe here -->
+                <div id="trailerFrame" hidden></div>
+
+                <!-- Used when no trailer is configured or a trailer errors -->
+                <video
+                    id="popupSampleVideo"
+                    controls
+                    playsinline
+                    preload="none"
+                    hidden>
+                </video>
+            </div>
+
+            <div class="dialog-details">
+                <p class="eyebrow">TITLE DETAILS</p>
+                <h2 id="dialogTitle">Movie Title</h2>
+
+                <div class="movie-meta">
+                    <span id="dialogYear"></span>
+                    <span id="dialogType"></span>
+                    <span id="dialogRating"></span>
+                </div>
+
+                <p id="dialogDescription"></p>
+
+                <div class="dialog-buttons">
+                    <button class="btn btn-red" id="listButton">
+                        + My List
+                    </button>
+                    <a
+                        id="externalTrailer"
+                        class="btn btn-outline"
+                        href="https://www.youtube.com/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Find Trailer
+                    </a>
+                </div>
+
+                <p class="video-note" id="videoNote"></p>
+            </div>
+        </div>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
